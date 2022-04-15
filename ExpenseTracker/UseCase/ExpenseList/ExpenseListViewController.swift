@@ -31,13 +31,13 @@ class ExpenseListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        self.navigationItem.title = "Home"
+        navigationItem.title = "Home"
     }
 
     @objc func navAction(sender: UIButton!) {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = mainStoryboard.instantiateViewController(withIdentifier: "CreateExpenseViewController")
-        self.navigationController?.pushViewController(viewController, animated: true)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 
     private func setupData() {
@@ -45,26 +45,26 @@ class ExpenseListViewController: UIViewController {
             return
         }
 
-        self.viewModel?.sectionViewModel
+        viewModel?.sectionViewModel
             .drive(tableView.rx.items(dataSource: dataSource))
             .disposed(by: rx.disposeBag)
     }
 
     private func setupStyle() {
-        self.view.backgroundColor = .white
+        view.backgroundColor = .white
     }
 
     private func configureTableView() {
-        self.tableView.backgroundColor = .white
-        self.tableView.separatorStyle = .none
-        self.tableView.rowHeight = UITableView.automaticDimension
+        tableView.backgroundColor = .white
+        tableView.separatorStyle = .none
+        tableView.rowHeight = UITableView.automaticDimension
 
-        self.tableView.rx.setDelegate(self)
+        tableView.rx.setDelegate(self)
             .disposed(by: rx.disposeBag)
 
-        self.tableView.register(UINib(nibName: "CollectiveDataCell", bundle: nil), forCellReuseIdentifier: "CollectiveDataCell")
-        self.tableView.register(UINib(nibName: "ExpenseHeaderCell", bundle: nil), forCellReuseIdentifier: "ExpenseHeaderCell")
-        self.tableView.register(UINib(nibName: "ExpenseItemCell", bundle: nil), forCellReuseIdentifier: "ExpenseItemCell")
+        tableView.register(UINib(nibName: "CollectiveDataCell", bundle: nil), forCellReuseIdentifier: "CollectiveDataCell")
+        tableView.register(UINib(nibName: "ExpenseHeaderCell", bundle: nil), forCellReuseIdentifier: "ExpenseHeaderCell")
+        tableView.register(UINib(nibName: "ExpenseItemCell", bundle: nil), forCellReuseIdentifier: "ExpenseItemCell")
     }
 
     private func configureDataSource() {
