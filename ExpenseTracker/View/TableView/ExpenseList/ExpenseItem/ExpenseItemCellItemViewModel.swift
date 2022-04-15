@@ -6,7 +6,40 @@
 //
 
 import Foundation
+import UIKit
 
 struct ExpenseItemCellItemViewModel {
-    
+    var nameText: String
+    var categoryImageName: String
+    var dateText: String
+    var amountText: String
+
+    init(expense: Expense, isEuro: Bool, exchangeRate: Double) {
+        nameText = expense.title ?? ""
+
+        let category = ExpenseCategory(rawValue: expense.category ?? "unknown") ?? .unknown
+
+        switch category {
+        case .food:
+            categoryImageName = "cart"
+        case .travel:
+            categoryImageName = "bus"
+        case .bill:
+            categoryImageName = "banknote"
+        case .sport:
+            categoryImageName = "figure.walk"
+        default:
+            categoryImageName = "questionmark.circle"
+        }
+
+        dateText = expense.created?.formatted(date: .abbreviated, time: .omitted) ?? ""
+        amountText = isEuro ? "\(String(expense.amount / exchangeRate)) EUR" : "\(expense.amount) HUF"
+    }
+
+    init() {
+        nameText = ""
+        categoryImageName = ""
+        dateText = ""
+        amountText = ""
+    }
 }

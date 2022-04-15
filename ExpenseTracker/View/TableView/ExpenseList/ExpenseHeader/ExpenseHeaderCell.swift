@@ -15,10 +15,17 @@ class ExpenseHeaderCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    private func setupStyle() {
-        backgroundColor = .lightGray
+    public func setupData(title: String) {
+        self.titleLabel.text = title
 
-        titleLabel.font = UIFont(name: "System", size: 24.0)
+        setupStyle()
+    }
+
+    private func setupStyle() {
+        backgroundColor = .white
+        selectionStyle = .none
+
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 24.0)
         titleLabel.textColor = .darkText
 
         layoutIfNeeded()

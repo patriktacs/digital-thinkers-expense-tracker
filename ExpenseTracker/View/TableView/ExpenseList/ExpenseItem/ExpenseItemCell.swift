@@ -20,19 +20,29 @@ class ExpenseItemCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    private func setupStyle(isLast: Bool) {
-        backgroundColor = .lightGray
-        containerView.backgroundColor = .lightGray
+    public func setupData(data: ExpenseItemCellItemViewModel) {
+        nameLabel.text = data.nameText
+        categoryImage.image = UIImage(systemName: data.categoryImageName)
+        dateLabel.text = data.dateText
+        amountLabel.text = data.amountText
 
-        nameLabel.font = UIFont(name: "System", size: 16.0)
+        setupStyle()
+    }
+
+    private func setupStyle() {
+        backgroundColor = .white
+        containerView.backgroundColor = .white
+        selectionStyle = .none
+
+        nameLabel.font = nameLabel.font.withSize(16)
         nameLabel.textColor = .darkText
-        dateLabel.font = UIFont(name: "System", size: 16.0)
+        dateLabel.font = dateLabel.font.withSize(16)
         dateLabel.textColor = .darkText
-        amountLabel.font = UIFont(name: "System", size: 16.0)
+        amountLabel.font = amountLabel.font.withSize(16)
         amountLabel.textColor = .darkText
+        amountLabel.textAlignment = .right
 
         bottomSeparatorView.backgroundColor = .darkGray
-        bottomSeparatorView.isHidden = isLast
 
         layoutIfNeeded()
     }

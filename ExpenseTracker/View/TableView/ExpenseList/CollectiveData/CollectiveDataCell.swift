@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import RxSwift
 
 class CollectiveDataCell: UITableViewCell {
+
+    var currencyAction: ((Bool) -> ())?
+
+    private var disposeBag = DisposeBag()
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var totalLabel: UILabel!
@@ -19,15 +24,33 @@ class CollectiveDataCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    private func setupStyle() {
-        backgroundColor = .lightGray
-        containerView.backgroundColor = .lightGray
+    public func setupData(data: CollectiveDataCellItemViewModel) {
+        self.totalLabel.text = data.totalText
+        self.totalAmountLabel.text = data.totalAmountText
+        self.currencyText.text = data.currencyText
+        self.currencySwitch.isOn = data.isEuro
 
-        totalLabel.font = UIFont(name: "System", size: 20.0)
+        currencySwitch.rx.isOn
+            .subscribe(onNext: { isOn in
+                guard let currencyAction = self.currencyAction else {
+                    return
+                }
+
+                currencyAction(isOn)
+            }).disposed(by: disposeBag)
+        self.setupStyle()
+    }
+
+    private func setupStyle() {
+        backgroundColor = .white
+        containerView.backgroundColor = .white
+        selectionStyle = .none
+
+        totalLabel.font = UIFont.boldSystemFont(ofSize: 24.0)
         totalLabel.textColor = .darkText
-        totalAmountLabel.font = UIFont(name: "System", size: 16.0)
-        totalAmountLabel.textColor = .systemRed
-        currencyText.font = UIFont(name: "System", size: 16.0)
+        totalAmountLabel.font = totalAmountLabel.font.withSize(16)
+        totalAmountLabel.textColor = .darkText
+        currencyText.font = currencyText.font.withSize(16)
         currencyText.textColor = .darkText
 
         layoutIfNeeded()

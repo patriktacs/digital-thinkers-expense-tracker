@@ -12,20 +12,19 @@ import CoreData
 protocol CoreDataManagerType {
     func getItems<T: NSManagedObject>(model: T.Type) -> [T]
     func deleteItem<T: NSManagedObject>(item: T)
+    func saveContext()
 }
 
 public class CoreDataManager: CoreDataManagerType {
 
     // Private variables
 
-    private var appDelegate: AppDelegate?
     private var context: NSManagedObjectContext?
 
     // Init
 
     init() {
-        appDelegate = UIApplication.shared.delegate as? AppDelegate
-        context = appDelegate?.persistentContainer.viewContext
+        context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     }
 
     // Public methods
@@ -40,13 +39,25 @@ public class CoreDataManager: CoreDataManagerType {
     }
 
     public func deleteItem<T: NSManagedObject>(item: T) {
-        guard let context = context,
-              let appdelegate = appDelegate else {
+        guard let context = context else {
             return
         }
 
         context.delete(item)
 
-        appdelegate.saveContext()
+        saveContext()
+    }
+
+    public func saveContext() {
+        guard let context = context else { return }
+        
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
     }
 }

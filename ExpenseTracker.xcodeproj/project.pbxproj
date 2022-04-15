@@ -24,7 +24,7 @@
 		AC4AA38B2809CBB100047E48 /* CollectiveDataCellItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4AA38A2809CBB100047E48 /* CollectiveDataCellItemViewModel.swift */; };
 		AC4AA3902809CC0500047E48 /* ExpenseHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4AA38E2809CC0500047E48 /* ExpenseHeaderCell.swift */; };
 		AC4AA3912809CC0500047E48 /* ExpenseHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC4AA38F2809CC0500047E48 /* ExpenseHeaderCell.xib */; };
-		AC4AA3932809CC1D00047E48 /* ExpenseHeaderCellItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4AA3922809CC1D00047E48 /* ExpenseHeaderCellItemViewModel.swift */; };
+		AC4AA3952809DF4500047E48 /* ExpenseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4AA3942809DF4500047E48 /* ExpenseCategory.swift */; };
 		AC6F068D2809B49100B57161 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6F068C2809B49100B57161 /* AppDelegate.swift */; };
 		AC6F068F2809B49100B57161 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6F068E2809B49100B57161 /* SceneDelegate.swift */; };
 		AC6F06942809B49200B57161 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC6F06922809B49200B57161 /* Main.storyboard */; };
@@ -52,7 +52,7 @@
 		AC4AA38A2809CBB100047E48 /* CollectiveDataCellItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectiveDataCellItemViewModel.swift; sourceTree = "<group>"; };
 		AC4AA38E2809CC0500047E48 /* ExpenseHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseHeaderCell.swift; sourceTree = "<group>"; };
 		AC4AA38F2809CC0500047E48 /* ExpenseHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpenseHeaderCell.xib; sourceTree = "<group>"; };
-		AC4AA3922809CC1D00047E48 /* ExpenseHeaderCellItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseHeaderCellItemViewModel.swift; sourceTree = "<group>"; };
+		AC4AA3942809DF4500047E48 /* ExpenseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategory.swift; sourceTree = "<group>"; };
 		AC6F06892809B49100B57161 /* ExpenseTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpenseTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC6F068C2809B49100B57161 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC6F068E2809B49100B57161 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -164,7 +164,6 @@
 			children = (
 				AC4AA38E2809CC0500047E48 /* ExpenseHeaderCell.swift */,
 				AC4AA38F2809CC0500047E48 /* ExpenseHeaderCell.xib */,
-				AC4AA3922809CC1D00047E48 /* ExpenseHeaderCellItemViewModel.swift */,
 			);
 			path = ExpenseHeader;
 			sourceTree = "<group>";
@@ -231,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				AC4AA36C2809BE0C00047E48 /* Expense */,
+				AC4AA3942809DF4500047E48 /* ExpenseCategory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -386,7 +386,6 @@
 				AC4AA3902809CC0500047E48 /* ExpenseHeaderCell.swift in Sources */,
 				AC4AA3702809BE0C00047E48 /* Expense+CoreDataClass.swift in Sources */,
 				AC4AA3692809BA1800047E48 /* ManagerAssembly.swift in Sources */,
-				AC4AA3932809CC1D00047E48 /* ExpenseHeaderCellItemViewModel.swift in Sources */,
 				AC4AA3752809C74900047E48 /* ExpenseListViewModel.swift in Sources */,
 				AC6F068D2809B49100B57161 /* AppDelegate.swift in Sources */,
 				AC6F068F2809B49100B57161 /* SceneDelegate.swift in Sources */,
@@ -397,6 +396,7 @@
 				AC4AA36F2809BE0C00047E48 /* Expense+CoreDataProperties.swift in Sources */,
 				AC4AA3772809C75800047E48 /* ExpenseListSectionViewModel.swift in Sources */,
 				AC6F06972809B49200B57161 /* ExpenseTracker.xcdatamodeld in Sources */,
+				AC4AA3952809DF4500047E48 /* ExpenseCategory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

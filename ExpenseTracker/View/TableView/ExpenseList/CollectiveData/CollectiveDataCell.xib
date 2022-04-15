@@ -21,22 +21,22 @@
                         <rect key="frame" x="16" y="16" width="288" height="132"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsC-tR-Dig">
-                                <rect key="frame" x="16" y="0.0" width="256" height="21"/>
+                                <rect key="frame" x="0.0" y="0.0" width="288" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="akf-UZ-O8F">
-                                <rect key="frame" x="16" y="29" width="256" height="21"/>
+                                <rect key="frame" x="0.0" y="29" width="288" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gNs-JI-xfI">
-                                <rect key="frame" x="16" y="101" width="51" height="31"/>
+                                <rect key="frame" x="0.0" y="101" width="51" height="31"/>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fj4-gM-zZR">
-                                <rect key="frame" x="81" y="106" width="191" height="21"/>
+                                <rect key="frame" x="65" y="106" width="223" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -46,15 +46,15 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="gNs-JI-xfI" secondAttribute="bottom" id="14U-U1-FT2"/>
                             <constraint firstItem="akf-UZ-O8F" firstAttribute="top" secondItem="SsC-tR-Dig" secondAttribute="bottom" constant="8" id="58w-Lq-kbQ"/>
-                            <constraint firstItem="SsC-tR-Dig" firstAttribute="leading" secondItem="bft-h6-iRq" secondAttribute="leading" constant="16" id="Hwy-xo-mUf"/>
-                            <constraint firstItem="gNs-JI-xfI" firstAttribute="leading" secondItem="bft-h6-iRq" secondAttribute="leading" constant="16" id="Mct-Cm-Cmn"/>
-                            <constraint firstAttribute="trailing" secondItem="akf-UZ-O8F" secondAttribute="trailing" constant="16" id="Ntf-D0-4fi"/>
+                            <constraint firstItem="SsC-tR-Dig" firstAttribute="leading" secondItem="bft-h6-iRq" secondAttribute="leading" id="Hwy-xo-mUf"/>
+                            <constraint firstItem="gNs-JI-xfI" firstAttribute="leading" secondItem="bft-h6-iRq" secondAttribute="leading" id="Mct-Cm-Cmn"/>
+                            <constraint firstAttribute="trailing" secondItem="akf-UZ-O8F" secondAttribute="trailing" id="Ntf-D0-4fi"/>
                             <constraint firstItem="SsC-tR-Dig" firstAttribute="top" secondItem="bft-h6-iRq" secondAttribute="top" id="WIc-D0-Yyu"/>
                             <constraint firstItem="fj4-gM-zZR" firstAttribute="leading" secondItem="gNs-JI-xfI" secondAttribute="trailing" constant="16" id="axz-x6-CxR"/>
                             <constraint firstItem="gNs-JI-xfI" firstAttribute="top" relation="greaterThanOrEqual" secondItem="akf-UZ-O8F" secondAttribute="bottom" constant="16" id="bW0-wh-JPc"/>
-                            <constraint firstItem="akf-UZ-O8F" firstAttribute="leading" secondItem="bft-h6-iRq" secondAttribute="leading" constant="16" id="eKp-Ow-503"/>
+                            <constraint firstItem="akf-UZ-O8F" firstAttribute="leading" secondItem="bft-h6-iRq" secondAttribute="leading" id="eKp-Ow-503"/>
                             <constraint firstItem="fj4-gM-zZR" firstAttribute="trailing" secondItem="akf-UZ-O8F" secondAttribute="trailing" id="vl2-Yz-aJR"/>
-                            <constraint firstAttribute="trailing" secondItem="SsC-tR-Dig" secondAttribute="trailing" constant="16" id="wR7-t0-DN0"/>
+                            <constraint firstAttribute="trailing" secondItem="SsC-tR-Dig" secondAttribute="trailing" id="wR7-t0-DN0"/>
                             <constraint firstItem="fj4-gM-zZR" firstAttribute="centerY" secondItem="gNs-JI-xfI" secondAttribute="centerY" id="x9J-e2-hbS"/>
                         </constraints>
                     </view>
