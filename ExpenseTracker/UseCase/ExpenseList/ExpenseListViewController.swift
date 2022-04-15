@@ -13,6 +13,7 @@ class ExpenseListViewController: UIViewController {
     var viewModel: ExpenseListViewModelType?
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var createNewButton: UIButton!
 
     private var dataSource: RxTableViewSectionedReloadDataSource<ExpenseListSectionViewModel>?
 
@@ -24,13 +25,19 @@ class ExpenseListViewController: UIViewController {
         setupData()
         setupStyle()
 
-
+        createNewButton.addTarget(self, action: #selector(navAction), for: .touchUpInside)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         self.navigationItem.title = "Home"
+    }
+
+    @objc func navAction(sender: UIButton!) {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = mainStoryboard.instantiateViewController(withIdentifier: "CreateExpenseViewController")
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 
     private func setupData() {

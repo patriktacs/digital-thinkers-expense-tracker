@@ -14,5 +14,9 @@ class ViewAssembly: Assembly {
         container.autoregister(ExpenseListViewModelType.self, initializer: ExpenseListViewModel.init)
         container.storyboardInitCompleted(ExpenseListViewController.self, initCompleted: { r,c in
         c.viewModel = r.resolve(ExpenseListViewModelType.self) })
+
+        container.autoregister(CreateExpenseViewModelType.self, initializer: CreateExpenseViewModel.init)
+        container.storyboardInitCompleted(CreateExpenseViewController.self, initCompleted: { r,c in
+        c.viewModel = r.resolve(CreateExpenseViewModelType.self) })
     }
 }

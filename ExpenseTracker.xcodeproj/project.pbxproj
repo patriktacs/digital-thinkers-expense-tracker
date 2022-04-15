@@ -25,6 +25,10 @@
 		AC4AA3902809CC0500047E48 /* ExpenseHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4AA38E2809CC0500047E48 /* ExpenseHeaderCell.swift */; };
 		AC4AA3912809CC0500047E48 /* ExpenseHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC4AA38F2809CC0500047E48 /* ExpenseHeaderCell.xib */; };
 		AC4AA3952809DF4500047E48 /* ExpenseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4AA3942809DF4500047E48 /* ExpenseCategory.swift */; };
+		AC4AA39A280A06D700047E48 /* CreateExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4AA399280A06D700047E48 /* CreateExpenseViewController.swift */; };
+		AC4AA39C280A06E600047E48 /* CreateExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4AA39B280A06E600047E48 /* CreateExpenseViewModel.swift */; };
+		AC4AA39F280A086500047E48 /* ExpenseActionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4AA39E280A086500047E48 /* ExpenseActionService.swift */; };
+		AC4AA3A1280A088900047E48 /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4AA3A0280A088900047E48 /* ServiceAssembly.swift */; };
 		AC6F068D2809B49100B57161 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6F068C2809B49100B57161 /* AppDelegate.swift */; };
 		AC6F068F2809B49100B57161 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6F068E2809B49100B57161 /* SceneDelegate.swift */; };
 		AC6F06942809B49200B57161 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC6F06922809B49200B57161 /* Main.storyboard */; };
@@ -53,6 +57,10 @@
 		AC4AA38E2809CC0500047E48 /* ExpenseHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseHeaderCell.swift; sourceTree = "<group>"; };
 		AC4AA38F2809CC0500047E48 /* ExpenseHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpenseHeaderCell.xib; sourceTree = "<group>"; };
 		AC4AA3942809DF4500047E48 /* ExpenseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategory.swift; sourceTree = "<group>"; };
+		AC4AA399280A06D700047E48 /* CreateExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateExpenseViewController.swift; sourceTree = "<group>"; };
+		AC4AA39B280A06E600047E48 /* CreateExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateExpenseViewModel.swift; sourceTree = "<group>"; };
+		AC4AA39E280A086500047E48 /* ExpenseActionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseActionService.swift; sourceTree = "<group>"; };
+		AC4AA3A0280A088900047E48 /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
 		AC6F06892809B49100B57161 /* ExpenseTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpenseTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC6F068C2809B49100B57161 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC6F068E2809B49100B57161 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				AC4AA3682809BA1800047E48 /* ManagerAssembly.swift */,
+				AC4AA3A0280A088900047E48 /* ServiceAssembly.swift */,
 				AC4AA3662809B9A900047E48 /* ViewAssembly.swift */,
 			);
 			path = Assembly;
@@ -168,6 +177,23 @@
 			path = ExpenseHeader;
 			sourceTree = "<group>";
 		};
+		AC4AA398280A06BA00047E48 /* CreateExpense */ = {
+			isa = PBXGroup;
+			children = (
+				AC4AA399280A06D700047E48 /* CreateExpenseViewController.swift */,
+				AC4AA39B280A06E600047E48 /* CreateExpenseViewModel.swift */,
+			);
+			path = CreateExpense;
+			sourceTree = "<group>";
+		};
+		AC4AA39D280A084800047E48 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				AC4AA39E280A086500047E48 /* ExpenseActionService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		AC6F06802809B49100B57161 = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +218,7 @@
 				AC4AA3652809B8EA00047E48 /* Assembly */,
 				AC6F06A52809B69E00B57161 /* Manager */,
 				AC6F06A72809B6B100B57161 /* Model */,
+				AC4AA39D280A084800047E48 /* Service */,
 				AC6F06A92809B6F100B57161 /* Storyboard */,
 				AC6F06A82809B6CF00B57161 /* Supporting Files */,
 				AC6F06A32809B67D00B57161 /* UseCase */,
@@ -205,6 +232,7 @@
 		AC6F06A32809B67D00B57161 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				AC4AA398280A06BA00047E48 /* CreateExpense */,
 				AC4AA3712809C72300047E48 /* ExpenseList */,
 			);
 			path = UseCase;
@@ -383,11 +411,14 @@
 				AC4AA36B2809BC0D00047E48 /* CoreDataManager.swift in Sources */,
 				AC4AA3842809CB2300047E48 /* ExpenseItemCellItemViewModel.swift in Sources */,
 				AC4AA3672809B9A900047E48 /* ViewAssembly.swift in Sources */,
+				AC4AA3A1280A088900047E48 /* ServiceAssembly.swift in Sources */,
 				AC4AA3902809CC0500047E48 /* ExpenseHeaderCell.swift in Sources */,
+				AC4AA39F280A086500047E48 /* ExpenseActionService.swift in Sources */,
 				AC4AA3702809BE0C00047E48 /* Expense+CoreDataClass.swift in Sources */,
 				AC4AA3692809BA1800047E48 /* ManagerAssembly.swift in Sources */,
 				AC4AA3752809C74900047E48 /* ExpenseListViewModel.swift in Sources */,
 				AC6F068D2809B49100B57161 /* AppDelegate.swift in Sources */,
+				AC4AA39C280A06E600047E48 /* CreateExpenseViewModel.swift in Sources */,
 				AC6F068F2809B49100B57161 /* SceneDelegate.swift in Sources */,
 				AC4AA3812809CADE00047E48 /* ExpenseItemCell.swift in Sources */,
 				AC4AA38B2809CBB100047E48 /* CollectiveDataCellItemViewModel.swift in Sources */,
@@ -397,6 +428,7 @@
 				AC4AA3772809C75800047E48 /* ExpenseListSectionViewModel.swift in Sources */,
 				AC6F06972809B49200B57161 /* ExpenseTracker.xcdatamodeld in Sources */,
 				AC4AA3952809DF4500047E48 /* ExpenseCategory.swift in Sources */,
+				AC4AA39A280A06D700047E48 /* CreateExpenseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,12 +7,15 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 struct ExpenseItemCellItemViewModel {
     var nameText: String
     var categoryImageName: String
     var dateText: String
     var amountText: String
+
+    var id: NSManagedObjectID
 
     init(expense: Expense, isEuro: Bool, exchangeRate: Double) {
         nameText = expense.title ?? ""
@@ -34,6 +37,8 @@ struct ExpenseItemCellItemViewModel {
 
         dateText = expense.created?.formatted(date: .abbreviated, time: .omitted) ?? ""
         amountText = isEuro ? "\(String(expense.amount / exchangeRate)) EUR" : "\(expense.amount) HUF"
+
+        id = expense.objectID
     }
 
     init() {
@@ -41,5 +46,6 @@ struct ExpenseItemCellItemViewModel {
         categoryImageName = ""
         dateText = ""
         amountText = ""
+        id = NSManagedObjectID()
     }
 }

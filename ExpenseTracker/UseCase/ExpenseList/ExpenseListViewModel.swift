@@ -22,8 +22,6 @@ public class ExpenseListViewModel: ExpenseListViewModelType {
     var isEuroRelay = BehaviorRelay<Bool>(value: false)
     var sectionViewModel: Driver<[ExpenseListSectionViewModel]>
 
-    // Private variables
-
     // Dependencies
 
     private var coreDataManager: CoreDataManagerType
@@ -84,6 +82,4 @@ public class ExpenseListViewModel: ExpenseListViewModelType {
             self.isEuroRelay.accept(isEuro)
         }
     }
-
-    // Private methods
 }

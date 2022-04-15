@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -36,18 +37,41 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KsZ-qx-isw">
+                                <rect key="frame" x="318" y="766" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="CEO-f2-sse"/>
+                                    <constraint firstAttribute="width" constant="64" id="fcd-lK-jyV"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                    </preferredSymbolConfiguration>
+                                </state>
+                                <buttonConfiguration key="configuration" style="filled">
+                                    <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font">
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                    </preferredSymbolConfiguration>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DlX-4S-FLI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="DlX-4S-FLI" firstAttribute="trailing" secondItem="Z9a-kW-SlF" secondAttribute="trailing" id="4iM-QB-ql1"/>
+                            <constraint firstItem="DlX-4S-FLI" firstAttribute="bottom" secondItem="KsZ-qx-isw" secondAttribute="bottom" constant="32" id="F4d-k8-hdt"/>
                             <constraint firstItem="Z9a-kW-SlF" firstAttribute="leading" secondItem="DlX-4S-FLI" secondAttribute="leading" id="bct-K6-1qE"/>
                             <constraint firstAttribute="bottom" secondItem="Z9a-kW-SlF" secondAttribute="bottom" id="kiP-fX-cIb"/>
+                            <constraint firstItem="DlX-4S-FLI" firstAttribute="trailing" secondItem="KsZ-qx-isw" secondAttribute="trailing" constant="32" id="qrw-k1-4KH"/>
                             <constraint firstItem="Z9a-kW-SlF" firstAttribute="top" secondItem="DlX-4S-FLI" secondAttribute="top" id="z4s-XT-3xW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="D0y-cb-LMu"/>
                     <connections>
+                        <outlet property="createNewButton" destination="KsZ-qx-isw" id="Vau-GR-h7i"/>
                         <outlet property="tableView" destination="Z9a-kW-SlF" id="6Hc-En-5AH"/>
                     </connections>
                 </viewController>
@@ -55,8 +79,24 @@
             </objects>
             <point key="canvasLocation" x="609" y="270"/>
         </scene>
+        <!--Create Expense View Controller-->
+        <scene sceneID="gUU-ic-Kjt">
+            <objects>
+                <viewController storyboardIdentifier="CreateExpenseViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="buD-Eq-X1g" customClass="CreateExpenseViewController" customModule="ExpenseTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0LZ-xd-QFJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="nyo-7u-Pl0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BrT-qC-cgA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1404" y="270"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
