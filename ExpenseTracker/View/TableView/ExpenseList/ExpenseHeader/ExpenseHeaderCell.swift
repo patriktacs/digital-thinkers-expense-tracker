@@ -9,15 +9,18 @@ import UIKit
 
 class ExpenseHeaderCell: UITableViewCell {
 
+    @IBOutlet weak var titleLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    private func setupStyle() {
+        backgroundColor = .lightGray
 
-        // Configure the view for the selected state
+        titleLabel.font = UIFont(name: "System", size: 24.0)
+        titleLabel.textColor = .darkText
+
+        layoutIfNeeded()
     }
-    
 }
