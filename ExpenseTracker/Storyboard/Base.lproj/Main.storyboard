@@ -3,6 +3,59 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="5kH-6c-Mvx">
+            <objects>
+                <navigationController id="qkj-ZH-tqJ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="i7C-e9-6FH">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="kqE-sX-0xZ" kind="relationship" relationship="rootViewController" id="VOB-le-Xx2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ts8-du-wYv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-180" y="270"/>
+        </scene>
+        <!--Expense List View Controller-->
+        <scene sceneID="Nmi-vP-5Zb">
+            <objects>
+                <viewController storyboardIdentifier="ExpenseListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kqE-sX-0xZ" customClass="ExpenseListViewController" customModule="ExpenseTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9EY-ag-hDX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Z9a-kW-SlF">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="DlX-4S-FLI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="DlX-4S-FLI" firstAttribute="trailing" secondItem="Z9a-kW-SlF" secondAttribute="trailing" id="4iM-QB-ql1"/>
+                            <constraint firstItem="Z9a-kW-SlF" firstAttribute="leading" secondItem="DlX-4S-FLI" secondAttribute="leading" id="bct-K6-1qE"/>
+                            <constraint firstAttribute="bottom" secondItem="Z9a-kW-SlF" secondAttribute="bottom" id="kiP-fX-cIb"/>
+                            <constraint firstItem="Z9a-kW-SlF" firstAttribute="top" secondItem="DlX-4S-FLI" secondAttribute="top" id="z4s-XT-3xW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="D0y-cb-LMu"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JFv-uG-znm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="609" y="270"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
