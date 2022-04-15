@@ -10,6 +10,9 @@
 		1078282A340DA1619D1FB9DB /* Pods_ExpenseTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1702BA522D79A408429E6EFB /* Pods_ExpenseTracker.framework */; };
 		AC4AA3672809B9A900047E48 /* ViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4AA3662809B9A900047E48 /* ViewAssembly.swift */; };
 		AC4AA3692809BA1800047E48 /* ManagerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4AA3682809BA1800047E48 /* ManagerAssembly.swift */; };
+		AC4AA36B2809BC0D00047E48 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4AA36A2809BC0D00047E48 /* CoreDataManager.swift */; };
+		AC4AA36F2809BE0C00047E48 /* Expense+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4AA36D2809BE0C00047E48 /* Expense+CoreDataProperties.swift */; };
+		AC4AA3702809BE0C00047E48 /* Expense+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4AA36E2809BE0C00047E48 /* Expense+CoreDataClass.swift */; };
 		AC6F068D2809B49100B57161 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6F068C2809B49100B57161 /* AppDelegate.swift */; };
 		AC6F068F2809B49100B57161 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6F068E2809B49100B57161 /* SceneDelegate.swift */; };
 		AC6F06942809B49200B57161 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC6F06922809B49200B57161 /* Main.storyboard */; };
@@ -23,6 +26,9 @@
 		426A9E297ED3E8CF3FE85B3D /* Pods-ExpenseTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExpenseTracker.release.xcconfig"; path = "Target Support Files/Pods-ExpenseTracker/Pods-ExpenseTracker.release.xcconfig"; sourceTree = "<group>"; };
 		AC4AA3662809B9A900047E48 /* ViewAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAssembly.swift; sourceTree = "<group>"; };
 		AC4AA3682809BA1800047E48 /* ManagerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerAssembly.swift; sourceTree = "<group>"; };
+		AC4AA36A2809BC0D00047E48 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		AC4AA36D2809BE0C00047E48 /* Expense+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		AC4AA36E2809BE0C00047E48 /* Expense+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataClass.swift"; sourceTree = "<group>"; };
 		AC6F06892809B49100B57161 /* ExpenseTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpenseTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC6F068C2809B49100B57161 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC6F068E2809B49100B57161 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +76,15 @@
 				AC4AA3662809B9A900047E48 /* ViewAssembly.swift */,
 			);
 			path = Assembly;
+			sourceTree = "<group>";
+		};
+		AC4AA36C2809BE0C00047E48 /* Expense */ = {
+			isa = PBXGroup;
+			children = (
+				AC4AA36E2809BE0C00047E48 /* Expense+CoreDataClass.swift */,
+				AC4AA36D2809BE0C00047E48 /* Expense+CoreDataProperties.swift */,
+			);
+			path = Expense;
 			sourceTree = "<group>";
 		};
 		AC6F06802809B49100B57161 = {
@@ -123,6 +138,7 @@
 		AC6F06A52809B69E00B57161 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				AC4AA36A2809BC0D00047E48 /* CoreDataManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -130,7 +146,7 @@
 		AC6F06A72809B6B100B57161 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				AC6F06952809B49200B57161 /* ExpenseTracker.xcdatamodeld */,
+				AC4AA36C2809BE0C00047E48 /* Expense */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -138,8 +154,9 @@
 		AC6F06A82809B6CF00B57161 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AC6F06AA2809B7E800B57161 /* Info */,
 				AC6F06982809B49800B57161 /* Assets.xcassets */,
+				AC6F06952809B49200B57161 /* ExpenseTracker.xcdatamodeld */,
+				AC6F06AA2809B7E800B57161 /* Info */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -276,10 +293,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC4AA36B2809BC0D00047E48 /* CoreDataManager.swift in Sources */,
 				AC4AA3672809B9A900047E48 /* ViewAssembly.swift in Sources */,
+				AC4AA3702809BE0C00047E48 /* Expense+CoreDataClass.swift in Sources */,
 				AC4AA3692809BA1800047E48 /* ManagerAssembly.swift in Sources */,
 				AC6F068D2809B49100B57161 /* AppDelegate.swift in Sources */,
 				AC6F068F2809B49100B57161 /* SceneDelegate.swift in Sources */,
+				AC4AA36F2809BE0C00047E48 /* Expense+CoreDataProperties.swift in Sources */,
 				AC6F06972809B49200B57161 /* ExpenseTracker.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
