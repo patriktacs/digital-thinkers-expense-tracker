@@ -6,3 +6,9 @@
 //
 
 import Foundation
+import Swinject
+import SwinjectAutoregistration
+
+class ViewAssembly: Assembly {
+    func assemble(container: Container) {}
+}

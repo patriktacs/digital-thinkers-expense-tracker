@@ -8,13 +8,27 @@
 import UIKit
 import CoreData
 
+import NSObject_Rx
+import Swinject
+import SwinjectStoryboard
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    fileprivate let assemblies: [Assembly] = [ManagerAssembly(),
+                                              ViewAssembly()]
 
+    var container: Container = {
+        let container = Container()
+        return container
+    }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let assembler = Assembler.init(container: container)
+        assembler.apply(assemblies: assemblies)
+
+        SwinjectStoryboard.defaultContainer = container
+
         return true
     }
 
