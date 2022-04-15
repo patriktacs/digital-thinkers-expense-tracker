@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ExpenseCategory: String, Codable {
+public enum ExpenseCategory: String, Codable {
     case food
     case travel
     case bill

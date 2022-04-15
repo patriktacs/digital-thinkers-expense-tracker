@@ -12,6 +12,7 @@ import CoreData
 protocol CoreDataManagerType {
     func getItems<T: NSManagedObject>(model: T.Type) -> [T]
     func deleteItem<T: NSManagedObject>(item: T)
+    func getItemById<T: NSManagedObject>(id: NSManagedObjectID) -> T?
     func saveContext()
 }
 
@@ -31,17 +32,19 @@ public class CoreDataManager: CoreDataManagerType {
 
     public func getItems<T: NSManagedObject>(model: T.Type) -> [T] {
         guard let context = context,
-              let items = try? context.fetch(model.fetchRequest()) as? [T] else {
-            return []
-        }
+              let items = try? context.fetch(model.fetchRequest()) as? [T] else { return [] }
 
         return items
     }
 
+    public func getItemById<T: NSManagedObject>(id: NSManagedObjectID) -> T? {
+        guard let context = context else { return nil }
+
+        return context.object(with: id) as? T
+    }
+
     public func deleteItem<T: NSManagedObject>(item: T) {
-        guard let context = context else {
-            return
-        }
+        guard let context = context else { return }
 
         context.delete(item)
 

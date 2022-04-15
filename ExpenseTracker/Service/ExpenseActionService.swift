@@ -7,11 +7,12 @@
 
 import Foundation
 import RxCocoa
+import CoreData
 
 protocol ExpenseActionServiceType {
-    var editedExpenseId: BehaviorRelay<String?> { get }
+    var editedExpenseId: BehaviorRelay<NSManagedObjectID?> { get }
 }
 
 class ExpenseActionService: ExpenseActionServiceType {
-    var editedExpenseId = BehaviorRelay<String?>(value: nil)
+    var editedExpenseId = BehaviorRelay<NSManagedObjectID?>(value: nil)
 }

@@ -32,6 +32,10 @@ class ExpenseListViewController: UIViewController {
         super.viewWillAppear(animated)
 
         navigationItem.title = "Home"
+
+        if let viewModel = viewModel {
+            viewModel.isEuroRelay.accept(viewModel.isEuroRelay.value)
+        }
     }
 
     @objc func navAction(sender: UIButton!) {
@@ -40,12 +44,17 @@ class ExpenseListViewController: UIViewController {
         navigationController?.pushViewController(viewController, animated: true)
     }
 
-    private func setupData() {
-        guard let dataSource = dataSource else {
-            return
-        }
+    private func navToUpdate() {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = mainStoryboard.instantiateViewController(withIdentifier: "CreateExpenseViewController")
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 
-        viewModel?.sectionViewModel
+    private func setupData() {
+        guard let dataSource = dataSource,
+              let viewModel = viewModel else { return }
+
+        viewModel.sectionViewModel
             .drive(tableView.rx.items(dataSource: dataSource))
             .disposed(by: rx.disposeBag)
     }
@@ -65,9 +74,33 @@ class ExpenseListViewController: UIViewController {
         tableView.register(UINib(nibName: "CollectiveDataCell", bundle: nil), forCellReuseIdentifier: "CollectiveDataCell")
         tableView.register(UINib(nibName: "ExpenseHeaderCell", bundle: nil), forCellReuseIdentifier: "ExpenseHeaderCell")
         tableView.register(UINib(nibName: "ExpenseItemCell", bundle: nil), forCellReuseIdentifier: "ExpenseItemCell")
+
+        tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
+            guard let self = self,
+                  let dataSource = self.dataSource else { return }
+
+            switch dataSource[indexPath.section] {
+            case .expensesSection(_, let items):
+                guard let viewModel = self.viewModel else { return }
+
+                if case let .expenseItem(item) = items[indexPath.row] {
+                    viewModel.setExpenseIdForUpdate(id: item.id)
+                    DispatchQueue.main.async {
+                        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                        let viewController = mainStoryboard.instantiateViewController(withIdentifier: "CreateExpenseViewController")
+                        self.navigationController?.pushViewController(viewController, animated: true)
+                    }
+                }
+            default:
+                break
+            }
+
+        }).disposed(by: rx.disposeBag)
     }
 
     private func configureDataSource() {
+        guard let viewModel = viewModel else { return }
+
         dataSource = RxTableViewSectionedReloadDataSource<ExpenseListSectionViewModel>(configureCell: { (_, table, idxPath, model) in
             switch model {
             case .expenseItem(let item):
@@ -78,7 +111,7 @@ class ExpenseListViewController: UIViewController {
             case .collectiveDataItem(let item):
                 guard let cell: CollectiveDataCell = table.dequeueReusableCell(withIdentifier: "CollectiveDataCell", for: idxPath) as? CollectiveDataCell else { return UITableViewCell() }
                 cell.setupData(data: item)
-                cell.currencyAction = self.viewModel?.updateCurrency
+                cell.currencyAction = viewModel.updateCurrency
 
                 return cell
             }

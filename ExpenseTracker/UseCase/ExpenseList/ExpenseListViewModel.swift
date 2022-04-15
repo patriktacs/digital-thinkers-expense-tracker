@@ -7,12 +7,14 @@
 
 import Foundation
 import RxCocoa
+import CoreData
 
 protocol ExpenseListViewModelType {
     var isEuroRelay: BehaviorRelay<Bool> { get }
     var sectionViewModel: Driver<[ExpenseListSectionViewModel]> { get }
 
     func updateCurrency(isEuro: Bool)
+    func setExpenseIdForUpdate(id: NSManagedObjectID)
 }
 
 public class ExpenseListViewModel: ExpenseListViewModelType {
@@ -25,11 +27,14 @@ public class ExpenseListViewModel: ExpenseListViewModelType {
     // Dependencies
 
     private var coreDataManager: CoreDataManagerType
+    private var expenseActionService: ExpenseActionServiceType
 
     // Init
 
-    init(coreDataManager: CoreDataManagerType) {
+    init(coreDataManager: CoreDataManagerType,
+         expenseActionService: ExpenseActionServiceType) {
         self.coreDataManager = coreDataManager
+        self.expenseActionService = expenseActionService
 
         sectionViewModel = isEuroRelay
             .map { isEuro in
@@ -61,7 +66,8 @@ public class ExpenseListViewModel: ExpenseListViewModelType {
                             let dateFormatter = DateFormatter()
                             dateFormatter.dateFormat = "yyyy MM"
 
-                            if let date = expense.created, dateFormatter.string(from: date) == section {
+                            if let date = expense.created,
+                               dateFormatter.string(from: date) == section {
                                 itemViewModels.append(ExpenseListSectionItemViewModel.expenseItem(item: ExpenseItemCellItemViewModel(expense: expense, isEuro: isEuro, exchangeRate: 400.0)))
                             }
                         }
@@ -81,5 +87,9 @@ public class ExpenseListViewModel: ExpenseListViewModelType {
         if !(isEuro == self.isEuroRelay.value) {
             self.isEuroRelay.accept(isEuro)
         }
+    }
+
+    public func setExpenseIdForUpdate(id: NSManagedObjectID) {
+        expenseActionService.editedExpenseId.accept(id)
     }
 }

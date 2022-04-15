@@ -29,6 +29,8 @@
 		AC4AA39C280A06E600047E48 /* CreateExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4AA39B280A06E600047E48 /* CreateExpenseViewModel.swift */; };
 		AC4AA39F280A086500047E48 /* ExpenseActionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4AA39E280A086500047E48 /* ExpenseActionService.swift */; };
 		AC4AA3A1280A088900047E48 /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4AA3A0280A088900047E48 /* ServiceAssembly.swift */; };
+		AC4AA3A3280A11E500047E48 /* CreateExpenseViewItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4AA3A2280A11E500047E48 /* CreateExpenseViewItemViewModel.swift */; };
+		AC4AA3A5280A216E00047E48 /* ExpenseActionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4AA3A4280A216E00047E48 /* ExpenseActionResult.swift */; };
 		AC6F068D2809B49100B57161 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6F068C2809B49100B57161 /* AppDelegate.swift */; };
 		AC6F068F2809B49100B57161 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6F068E2809B49100B57161 /* SceneDelegate.swift */; };
 		AC6F06942809B49200B57161 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC6F06922809B49200B57161 /* Main.storyboard */; };
@@ -61,6 +63,8 @@
 		AC4AA39B280A06E600047E48 /* CreateExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateExpenseViewModel.swift; sourceTree = "<group>"; };
 		AC4AA39E280A086500047E48 /* ExpenseActionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseActionService.swift; sourceTree = "<group>"; };
 		AC4AA3A0280A088900047E48 /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
+		AC4AA3A2280A11E500047E48 /* CreateExpenseViewItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateExpenseViewItemViewModel.swift; sourceTree = "<group>"; };
+		AC4AA3A4280A216E00047E48 /* ExpenseActionResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseActionResult.swift; sourceTree = "<group>"; };
 		AC6F06892809B49100B57161 /* ExpenseTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpenseTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC6F068C2809B49100B57161 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC6F068E2809B49100B57161 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -180,6 +184,7 @@
 		AC4AA398280A06BA00047E48 /* CreateExpense */ = {
 			isa = PBXGroup;
 			children = (
+				AC4AA3A2280A11E500047E48 /* CreateExpenseViewItemViewModel.swift */,
 				AC4AA399280A06D700047E48 /* CreateExpenseViewController.swift */,
 				AC4AA39B280A06E600047E48 /* CreateExpenseViewModel.swift */,
 			);
@@ -258,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				AC4AA36C2809BE0C00047E48 /* Expense */,
+				AC4AA3A4280A216E00047E48 /* ExpenseActionResult.swift */,
 				AC4AA3942809DF4500047E48 /* ExpenseCategory.swift */,
 			);
 			path = Model;
@@ -411,6 +417,7 @@
 				AC4AA36B2809BC0D00047E48 /* CoreDataManager.swift in Sources */,
 				AC4AA3842809CB2300047E48 /* ExpenseItemCellItemViewModel.swift in Sources */,
 				AC4AA3672809B9A900047E48 /* ViewAssembly.swift in Sources */,
+				AC4AA3A3280A11E500047E48 /* CreateExpenseViewItemViewModel.swift in Sources */,
 				AC4AA3A1280A088900047E48 /* ServiceAssembly.swift in Sources */,
 				AC4AA3902809CC0500047E48 /* ExpenseHeaderCell.swift in Sources */,
 				AC4AA39F280A086500047E48 /* ExpenseActionService.swift in Sources */,
@@ -425,6 +432,7 @@
 				AC4AA3882809CB6C00047E48 /* CollectiveDataCell.swift in Sources */,
 				AC4AA37B2809C7F700047E48 /* ExpenseListViewController.swift in Sources */,
 				AC4AA36F2809BE0C00047E48 /* Expense+CoreDataProperties.swift in Sources */,
+				AC4AA3A5280A216E00047E48 /* ExpenseActionResult.swift in Sources */,
 				AC4AA3772809C75800047E48 /* ExpenseListSectionViewModel.swift in Sources */,
 				AC6F06972809B49200B57161 /* ExpenseTracker.xcdatamodeld in Sources */,
 				AC4AA3952809DF4500047E48 /* ExpenseCategory.swift in Sources */,

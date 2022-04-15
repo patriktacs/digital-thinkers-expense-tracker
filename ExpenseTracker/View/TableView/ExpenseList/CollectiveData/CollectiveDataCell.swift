@@ -32,9 +32,7 @@ class CollectiveDataCell: UITableViewCell {
 
         currencySwitch.rx.isOn
             .subscribe(onNext: { isOn in
-                guard let currencyAction = self.currencyAction else {
-                    return
-                }
+                guard let currencyAction = self.currencyAction else { return }
 
                 currencyAction(isOn)
             }).disposed(by: disposeBag)

@@ -16,6 +16,7 @@ import SwinjectStoryboard
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     fileprivate let assemblies: [Assembly] = [ManagerAssembly(),
+                                              ServiceAssembly(),
                                               ViewAssembly()]
 
     var container: Container = {
